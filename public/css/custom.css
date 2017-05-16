@@ -3,3 +3,29 @@ html, body {
   background: #ffffff;
   height: 100%;
 }
+
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.po-info {
+  background: #eee;
+}
+
+.content-block {
+  padding: 20px 30px;
+}
+
+.content-title {
+  margin-bottom: 30px;
+}
+
+.po-value {
+  padding-top: 7px;
+  font-weight: bold;
+}

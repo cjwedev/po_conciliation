@@ -1,5 +1,5 @@
 
-var config = require('../config/config'),
+var config = require('../config'),
   async = require('async'),
   mailer = require('../mailer/models');
 

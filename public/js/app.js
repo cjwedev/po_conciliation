@@ -18,7 +18,7 @@ angular.module('po', [
         templateUrl: 'views/landing.html',
         controller: 'MainCtrl',
         controllerAs: 'ctrl'
-      })
+      }
     );
 
     $logProvider.debugEnabled(true);

@@ -1,0 +1,29 @@
+{
+  "name": "PO_Conciliation",
+  "version": "1.0.0",
+  "description": "PO Conciliation",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Cormac",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-sanitize": "^1.5.3",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "^0.3.2",
+    "async": "^2.1.5",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.2.0",
+    "email-templates": "^2.5.4",
+    "express": "^4.15.2",
+    "pug": "^2.0.0-beta11",
+    "lodash": "^4.17.4",
+    "method-override": "^1.0.0",
+    "morgan": "^1.8.1",
+    "nodemailer": "^3.1.8",
+    "nodemailer-html-to-text": "^2.1.0"
+  }
+}

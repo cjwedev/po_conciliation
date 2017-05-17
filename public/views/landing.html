@@ -34,7 +34,7 @@
                                         />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="ctrl.openReceiptDate()">
-                                                <i class="glyphicon glyphicon-calendar"></i>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
                                             </button>
                                         </span>
                                     </div>
@@ -68,12 +68,140 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="content-block">
-                <h3 class="content-title">Receiving Contact Info</h3>
+                <h3 class="content-title text-center">Receiving Contact Info</h3>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="contactName" class="col-xs-5 control-label">Name</label>
+                                <div class="col-xs-7">
+                                    <input type="text" id="contactName" class="form-control" ng-model="ctrl.contactName" ng-required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactName" class="col-xs-5 control-label">Email</label>
+                                <div class="col-xs-7">
+                                    <input type="text" id="contactEmail" class="form-control" ng-model="ctrl.contactEmail" ng-required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone" class="col-xs-5 control-label">Phone Number</label>
+                                <div class="col-xs-7">
+                                    <input type="email" id="contactPhone" class="form-control" ng-model="ctrl.contactPhone" ng-required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!-- End of Header -->
+
+    <hr />
+
+    <!-- Start of Conciliation -->
+    <div class="row" ng-repeat="item in ctrl.items">
+        <div class="col-md-12">
+
+            <!-- Start of Missig -->
+            <div class="item-section" ng-if="item.category == 'Missing'">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="item">
+                            <div class="item-category">
+                                <select class="form-control"
+                                        ng-options="category for category in ctrl.itemCategories track by category"
+                                        ng-model="item.category">
+                                </select>
+                            </div>
+                            <div class="item-name">
+                                <input type="text" class="form-control" ng-model="item.productNumber"placeholder="Product Number" ng-required />
+                            </div>
+                            <div class="item-qty">
+                                <span class="mr10">QTY</span><input type="number" class="form-control" ng-model="item.qty" min="1" max="9999" ng-required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 col-sm-12">
+                        <div class="item">
+                            <div class="item-purchase-price">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="text" class="form-control" placeholder="Purchase Price" ng-model="item.purchasePrice" ng-required />
+                                </div>
+                            </div>
+
+                            <div class="item-po-change">
+                                <div class="input-group">
+                                    <div class="input-group-addon">-$</div>
+                                    <input type="text" class="form-control" placeholder="Po Change" ng-model="item.poChange" ng-required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="item">
+                            <div class="item-category"></div>
+                            <div class="item-name">
+                                <button class="btn btn-default btn-success">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Upload Image
+                                </button>
+                            </div>
+                            <div class="item-qty"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12">
+                        <div class="item">
+                            <div class="item-purchase-price">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="text" class="form-control" placeholder="Cosmetic Price" ng-model="item.cosmeticPrice" ng-required />
+                                </div>
+                            </div>
+                            <div class="item-po-change"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-5 col-sm-12">
+                        <textarea rows="4" class="form-control" placeholder="Comments" ng-model="item.comment"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Missig -->
+
+
+            <hr />
+        </div>
+    </div>
+    <!-- End of Conciliation -->
+
+    <!-- Start of Actions -->
+    <div>
+        <div class="mb20">
+            <button class="btn btn-primary mb20" ng-click="ctrl.addItem();">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i> Add Item
+            </button>
+        </div>
+        <div>
+            <div class="form-group">
+                <input type="text" class="form-control" style="width: 250px" ng-model="ctrl.emailTo" ng-required />
+            </div>
+            <button class="btn btn-primary" ng-click="ctrl.done();">
+                <i class="fa fa-check" aria-hidden="true"></i> Done
+            </button>
+        </div>
+    </div>
+    <!-- End of Actions -->
 
 </div>

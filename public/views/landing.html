@@ -146,6 +146,47 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- End of Missig -->
+
+            <!-- Start of Cosmetic -->
+            <div class="item-section" ng-if="item.category == 'Cosmetic' || item.category == 'Broken'">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="item">
+                            <div class="item-category">
+                                <select class="form-control"
+                                        ng-options="category for category in ctrl.itemCategories track by category"
+                                        ng-model="item.category">
+                                </select>
+                            </div>
+                            <div class="item-name">
+                                <input type="text" class="form-control" ng-model="item.productNumber"placeholder="Product Number" ng-required />
+                            </div>
+                            <div class="item-qty">
+                                <span class="mr10">QTY</span><input type="number" class="form-control" ng-model="item.qty" min="1" max="9999" ng-required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 col-sm-12">
+                        <div class="item">
+                            <div class="item-purchase-price">
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="text" class="form-control" placeholder="Purchase Price" ng-model="item.purchasePrice" ng-required />
+                                </div>
+                            </div>
+
+                            <div class="item-po-change">
+                                <div class="input-group">
+                                    <div class="input-group-addon">-$</div>
+                                    <input type="text" class="form-control" placeholder="Po Change" ng-model="item.poChange" ng-required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="col-md-5 col-sm-12">
@@ -178,8 +219,65 @@
                     </div>
                 </div>
             </div>
-            <!-- End of Missig -->
+            <!-- End of Cosmetic -->
 
+            <!-- Start of Extra -->
+            <div class="item-section" ng-if="item.category == 'Extra'">
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="item">
+                            <div class="item-category">
+                                <select class="form-control"
+                                        ng-options="category for category in ctrl.itemCategories track by category"
+                                        ng-model="item.category">
+                                </select>
+                            </div>
+                            <div class="item-name">
+                                <input type="text" class="form-control" ng-model="item.productNumber"placeholder="Product Number" ng-required />
+                            </div>
+                            <div class="item-extra-qty">
+                                <div>Original QTY</div><input type="number" class="form-control" ng-model="item.originalQty" min="1" max="9999" ng-required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 col-sm-12">
+                        <div class="item">
+                            <div class="item-extra-qty">
+                                <div>Received QTY</div>
+                                <input type="number" class="form-control" ng-model="item.receivedQty" min="1" max="9999" ng-required />
+                            </div>
+
+                            <div class="item-extra-qty">
+                                <div>Quantity Change</div>
+                                <div style="line-height: 35px">{{ item.receivedQty - item.originalQty }}</div>
+                            </div>
+
+                            <div class="item-purchase-price">
+                                <div class="input-group">
+                                    <div class="input-group-addon">-$</div>
+                                    <input type="text" class="form-control" placeholder="Purchase Price" ng-model="item.purchasePrice" ng-required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5 col-sm-12">
+                        <div class="item">
+                            <div class="item-category"></div>
+                            <div class="item-name">
+                                <button class="btn btn-default btn-success">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Upload Image
+                                </button>
+                            </div>
+                            <div class="item-qty"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Extra -->
 
             <hr />
         </div>

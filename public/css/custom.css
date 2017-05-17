@@ -46,6 +46,7 @@ hr {
 
 .item .item-category {
   display: table-cell;
+  vertical-align: top;
   width: 30%;
   text-align: left;
 }
@@ -56,6 +57,7 @@ hr {
 
 .item .item-name {
   display: table-cell;
+  vertical-align: top;
   text-align: center;
 }
 
@@ -67,6 +69,7 @@ hr {
 
 .item .item-qty {
   display: table-cell;
+  vertical-align: top;
   width: 30%;
   text-align: right;
 }
@@ -78,6 +81,7 @@ hr {
 
 .item .item-purchase-price {
   display: table-cell;
+  vertical-align: top;
   width: 50%;
   text-align: left;
 }
@@ -88,11 +92,24 @@ hr {
 
 .item .item-po-change {
   display: table-cell;
+  vertical-align: top;
   width: 50%;
 }
 
 .item .item-po-change input {
   width: 60%;
+}
+
+.item .item-extra-qty {
+  display: table-cell;
+  vertical-align: top;
+  width: 25%;
+  text-align: center;
+}
+
+.item .item-extra-qty input {
+  width: 80px;
+  margin: auto;
 }
 
 .mb20 {

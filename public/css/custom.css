@@ -112,6 +112,14 @@ hr {
   margin: auto;
 }
 
+.item-remove-action {
+  float: right;
+  margin-right: 20px;
+  font-size: 20px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
 .required-field {
   z-index: 999 !important;
   border-color: rgb(228, 101, 101);

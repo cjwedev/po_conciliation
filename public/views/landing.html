@@ -132,7 +132,7 @@
         <div class="row" ng-repeat="item in ctrl.items track by $index">
             <div class="col-md-12">
 
-                <!-- Start of Missig -->
+                <!-- Start of Missing -->
                 <div class="item-section" ng-if="item.category == 'Missing'">
                     <div class="row">
                         <div class="col-md-5 col-sm-12">
@@ -189,13 +189,16 @@
                                                 ng-class="{'required-field': poForm.$submitted && poForm['poChange' + $index].$error.required}"
                                                 required
                                         />
+                                        <div class="item-remove-action">
+                                            <a ng-click="ctrl.removeItem($index)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End of Missig -->
+                <!-- End of Missing -->
 
                 <!-- Start of Cosmetic -->
                 <div class="item-section" ng-if="item.category == 'Cosmetic' || item.category == 'Broken'">
@@ -254,6 +257,9 @@
                                                 ng-class="{'required-field': poForm.$submitted && poForm['poChange' + $index].$error.required}"
                                                 required
                                         />
+                                        <div class="item-remove-action">
+                                            <a ng-click="ctrl.removeItem($index)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -360,6 +366,9 @@
                                                 ng-class="{'required-field': poForm.$submitted && poForm['purchasePrice' + $index].$error.required}"
                                                 required
                                         />
+                                        <div class="item-remove-action">
+                                            <a ng-click="ctrl.removeItem($index)"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -396,7 +405,12 @@
             </div>
             <div>
                 <div class="form-group">
-                    <input type="text" class="form-control" style="width: 250px" placeholder="Email to" ng-model="ctrl.emailTo" ng-required />
+                    <input type="text" class="form-control" style="width: 250px" placeholder="Email to"
+                            name="emailTo"
+                            ng-model="ctrl.emailTo"
+                            ng-class="{'required-field': poForm.$submitted && poForm['emailTo' + $index].$error.required}"
+                            required
+                    />
                 </div>
                 <button class="btn btn-primary" ng-click="ctrl.done();">
                     <i class="fa fa-check" aria-hidden="true"></i> Done

@@ -1,6 +1,6 @@
 <div class="container main">
 
-    <form name="poForm" role="form" ng-submit="ctrl.done();" novalidate>
+    <form name="poForm" role="form" ng-submit="ctrl.done(poForm);" novalidate>
         <!-- Start of Header -->
         <div class="row">
             <div class="col-md-8">
@@ -14,7 +14,7 @@
                                     <label for="poNumber" class="col-xs-5 control-label">PO Number</label>
                                     <div class="col-xs-7">
                                         <input type="text" name="poNumber" class="form-control"
-                                               ng-model="ctrl.poNumber"
+                                               ng-model="ctrl.po.poNumber"
                                                ng-class="{'required-field': poForm.$submitted && poForm.poNumber.$error.required}"
                                                required
                                         />
@@ -30,7 +30,7 @@
                                                 class="form-control"
                                                 placeholder="mm/dd/yyyy"
                                                 uib-datepicker-popup="{{ctrl.dateFormat}}"
-                                                ng-model="ctrl.receiptDate"
+                                                ng-model="ctrl.po.receiptDate"
                                                 datepicker-options="ctrl.dateOptions"
                                                 ng-required="true"
                                                 close-text="Close"
@@ -56,23 +56,26 @@
                                 <div class="form-group">
                                     <label for="orgPurchasePrice" class="col-md-6 col-sm-5 control-label">Original Purchase Price</label>
                                     <div class="col-md-6 col-sm-7">
-                                        <input type="text" name="orgPurchasePrice" class="form-control"
-                                            ng-model="ctrl.orgPurchasePrice"
-                                            ng-class="{'required-field': poForm.$submitted && poForm.orgPurchasePrice.$error.required}"
-                                            required
-                                        />
+                                        <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" name="orgPurchasePrice" class="form-control"
+                                                ng-model="ctrl.po.orgPurchasePrice"
+                                                ng-class="{'required-field': poForm.$submitted && poForm.orgPurchasePrice.$error.required}"
+                                                required
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-6 col-sm-5 control-label">Received Value</label>
                                     <div class="col-md-6 col-sm-7">
-                                        <div class="po-value">{{ctrl.receivedValue | currency:"$":2}}</div>
+                                        <div class="po-value">{{ctrl.po.receivedValue | currency:"$":2}}</div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-6 col-sm-5 control-label">Difference</label>
                                     <div class="col-md-6 col-sm-7">
-                                        <div class="po-value">{{ctrl.difference | currency:"$":2}}</div>
+                                        <div class="po-value">{{ctrl.po.difference | currency:"$":2}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +95,7 @@
                                     <label for="contactName" class="col-xs-5 control-label">Name</label>
                                     <div class="col-xs-7">
                                         <input type="text" name="contactName" class="form-control"
-                                            ng-model="ctrl.contactName"
+                                            ng-model="ctrl.po.contactName"
                                             ng-class="{'required-field': poForm.$submitted && poForm.contactName.$error.required}"
                                             required
                                         />
@@ -102,7 +105,7 @@
                                     <label for="contactName" class="col-xs-5 control-label">Email</label>
                                     <div class="col-xs-7">
                                         <input type="email" name="contactEmail" class="form-control"
-                                            ng-model="ctrl.contactEmail"
+                                            ng-model="ctrl.po.contactEmail"
                                             ng-class="{'required-field': poForm.$submitted && (poForm.contactEmail.$error.required || poForm.contactEmail.$error.email)}"
                                             required
                                         />
@@ -112,7 +115,7 @@
                                     <label for="contactPhone" class="col-xs-5 control-label">Phone Number</label>
                                     <div class="col-xs-7">
                                         <input type="text" name="contactPhone" class="form-control"
-                                            ng-model="ctrl.contactPhone"
+                                            ng-model="ctrl.po.contactPhone"
                                             ng-class="{'required-field': poForm.$submitted && poForm.contactPhone.$error.required}"
                                             required
                                         />
@@ -129,7 +132,7 @@
         <hr />
 
         <!-- Start of Conciliation -->
-        <div class="row" ng-repeat="item in ctrl.items track by $index">
+        <div class="row" ng-repeat="item in ctrl.po.items track by $index">
             <div class="col-md-12">
 
                 <!-- Start of Missing -->
@@ -407,12 +410,12 @@
                 <div class="form-group">
                     <input type="text" class="form-control" style="width: 250px" placeholder="Email to"
                             name="emailTo"
-                            ng-model="ctrl.emailTo"
-                            ng-class="{'required-field': poForm.$submitted && poForm['emailTo' + $index].$error.required}"
+                            ng-model="ctrl.po.emailTo"
+                            ng-class="{'required-field': poForm.$submitted && (poForm.emailTo.$error.required || poForm.emailTo.$error.email)}"
                             required
                     />
                 </div>
-                <button class="btn btn-primary" ng-click="ctrl.done();">
+                <button class="btn btn-primary">
                     <i class="fa fa-check" aria-hidden="true"></i> Done
                 </button>
             </div>

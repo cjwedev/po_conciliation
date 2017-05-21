@@ -1,0 +1,112 @@
+<div class="container main">
+    <div class="row">
+        <div class="col-md-5 col-sm-12">
+            <h3 class="content-title">PO Info</h3>
+            <div>
+                <p>PO Number:<span class="info-value">{{ctrl.po.poNumber}}</span></p>
+                <p>Receipt Date:<span class="info-value">{{ctrl.po.receiptDate | date}}</span></p>
+                <p>Original Purchase Price:<span class="info-value">{{ctrl.po.orgPurchasePrice}}</span></p>
+                <p>Received Value:<span class="info-value">{{ctrl.po.receivedValue | currency:"$":2}}</span></p>
+                <p>Difference:<span class="info-value">{{ctrl.po.difference | currency:"$":2}}</span></p>
+            </div>
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <h3 class="content-title">Receiving Contact Info</h3>
+            <div>
+                <p>Name:<span class="info-value">{{ctrl.po.contactName}}</span></p>
+                <p>Email:<span class="info-value">{{ctrl.po.contactEmail}}</span></p>
+                <p>Phone Number:<span class="info-value">{{ctrl.po.contactPhone}}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row" ng-repeat="item in ctrl.po.items track by $index">
+        <div class="col-md-12">
+            <div class="item-section" ng-if="item.category == 'Missing'">
+                <h3>Missing Equipment</h3>
+                <div class="item-details">
+                    <div class="item-column">
+                        <p><b>Product Number</b></p>
+                        <p>{{item.productNumber}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Quantity</b></p>
+                        <p>{{item.qty}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Purchase Price</b></p>
+                        <p>{{item.purchasePrice | currency:"$":2}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>PO Change</b></p>
+                        <p>{{item.poChange | currency:"$":2}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-section" ng-if="item.category == 'Cosmetic' || item.category == 'Broken'">
+                <h3>Cosmetic Equipment</h3>
+                <div class="item-details">
+                    <div class="item-column">
+                    </div>
+                    <div class="item-column">
+                        <p><b>Product Number</b></p>
+                        <p>{{item.productNumber}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Quantity</b></p>
+                        <p>{{item.qty}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Purchase Price</b></p>
+                        <p>{{item.purchasePrice || currency:"$":2}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Cosmetic Price</b></p>
+                        <p>{{item.cosmeticPrice || currency:"$":2}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>PO Change</b></p>
+                        <p>{{item.poChange | currency:"$":2}}</p>
+                    </div>
+                </div>
+                <div class="item-details">
+                    <div class="item-column">
+                        <p><b>Comments</b></p>
+                        <p>{{item.comment}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-section" ng-if="item.category == 'Extra'">
+                <h3>Extra Equipment</h3>
+                <div class="item-details">
+                    <div class="item-column">
+                    </div>
+                    <div class="item-column">
+                        <p><b>Product Number</b></p>
+                        <p>{{item.productNumber}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Original Quantity</b></p>
+                        <p>{{item.originalQty}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Quantity Received</b></p>
+                        <p>{{item.receivedQty}}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Quantity Change</b></p>
+                        <p>{{ item.receivedQty - item.originalQty }}</p>
+                    </div>
+                    <div class="item-column">
+                        <p><b>Purchase Price</b></p>
+                        <p>{{item.purchasePrice | currency:"$":2}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dv>

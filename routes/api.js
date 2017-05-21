@@ -6,5 +6,6 @@ var config = require('../config'),
 /**
  * Send email
  */
-exports.sendEmail = function(req, res) {
+exports.send = function(req, res) {
+  console.log(req.body);
 }

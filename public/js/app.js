@@ -18,6 +18,15 @@ angular.module('po', [
         templateUrl: 'views/landing.html',
         controller: 'MainCtrl',
         controllerAs: 'ctrl'
+      })
+      .state('done', {
+        url: '/done',
+        templateUrl: 'views/done.html',
+        controller: 'DoneCtrl',
+        controllerAs: 'ctrl',
+        params: {
+          po: {}
+        }
       }
     );
 

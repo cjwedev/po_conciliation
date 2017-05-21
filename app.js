@@ -33,7 +33,7 @@ var env = process.env.NODE_ENV || 'local';
  */
 
 // JSON API
-// app.post('/send', api.send);
+app.post('/api/send', api.send);
 
 // redirect all others to the index (HTML5 history)
 app.get('/', function (req, res) {
